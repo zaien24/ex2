@@ -17,5 +17,7 @@ public class Memo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mno;
 
+    @Column(length = 200, nullable = false)
+    private String memoText;
 
 }
