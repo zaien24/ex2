@@ -80,6 +80,14 @@ public class MemoRepositoryTests {
 
     }
 
+    @Test
+    public void testDelete() {
+
+        Long mno = 100L;
+
+        memoRepository.deleteById(mno);
+    }
+
 
 
 }
