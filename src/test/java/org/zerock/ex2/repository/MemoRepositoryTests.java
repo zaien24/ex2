@@ -3,8 +3,10 @@ package org.zerock.ex2.repository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 import org.zerock.ex2.entity.Memo;
 
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -40,4 +42,34 @@ public class MemoRepositoryTests {
             memoRepository.save(memo);
         });
     }
+
+    @Test
+    public void testSelect() {
+
+        //데이터베이스에 존재하는 mno
+        Long mno = 100L;
+
+        Optional<Memo> result = memoRepository.findById(mno);
+
+        if (result.isPresent()) {
+            Memo memo = result.get();
+            System.out.println(memo);
+        }
+    }
+
+    @Transactional
+    @Test
+    public void testSelect2() {
+
+        //데이터베이스에 존재하는 mno
+        Long mno = 100L;
+
+        Memo memo = memoRepository.getOne(mno);
+
+        System.out.println("================");
+
+        System.out.println(memo);
+    }
+
 }
+
