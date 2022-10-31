@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.ex2.entity.Memo;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -131,6 +132,15 @@ public class MemoRepositoryTests {
         result.get().forEach(memo -> {
             System.out.println(memo);
         });
+    }
+
+    @Test
+    public void testQueryMethods() {
+        List<Memo> list = memoRepository.findByMnoBetweenOrderByMnoDesc(70L, 80L);
+
+        for (Memo memo : list) {
+            System.out.println(memo);
+        }
     }
 
 
