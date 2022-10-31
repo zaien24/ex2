@@ -100,6 +100,22 @@ public class MemoRepositoryTests {
 
         System.out.println(result);
 
+        System.out.println("------------------------");
+
+        System.out.println("Total Pages : " + result.getTotalPages());
+
+        System.out.println("Total Count : " + result.getTotalElements());
+
+        System.out.println("Page Number: " + result.getNumber());
+
+        System.out.println("Page size : " + result.getSize());
+
+        System.out.println("has next page? : " + result.hasNext());
+
+        System.out.println("first page? : " + result.isFirst());
+
+
+
     }
 
 
